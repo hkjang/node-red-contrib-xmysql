@@ -34,28 +34,33 @@ Expects a <b>msg.payload</b> with request(get,post,put,patch,delete) params.
 | GET       | /api/tableName/count             | Count number of rows in a table                        |
 | GET       | /api/tableName/distinct          | Distinct row(s) in table - /api/tableName/distinct?_fields=col1|
 | GET       | /api/tableName/:id/exists        | True or false whether a row exists or not              |
-| GET       | [/api/parentTable/:id/childTable](#relational-tables)             | Get list of child table rows with parent table foreign key   | 
-| GET :fire:| [/api/tableName/aggregate](#aggregate-functions)                  | Aggregate results of numeric column(s)                 |
-| GET :fire:| [/api/tableName/groupby](#group-by-having-as-api)                 | Group by results of column(s)                          |
-| GET :fire:| [/api/tableName/ugroupby](#union-of-multiple-group-by-statements) | Multiple group by results using one call               |
-| GET :fire:| [/api/tableName/chart](#chart)                                    | Numeric column distribution based on (min,max,step) or(step array) or (automagic)|
-| GET :fire:| [/api/tableName/autochart](#autochart)                            | Same as Chart but identifies which are numeric column automatically - gift for lazy while prototyping|
-| GET :fire:| [/api/xjoin](#xjoin)                                              | handles join                                        |
-| GET :fire:| [/dynamic](#run-dynamic-queries)                                  | execute dynamic mysql statements with params           |
-| GET :fire:| [/upload](#upload-single-file)                                    | upload single file                                     |
-| GET :fire:| [/uploads](#upload-multiple-files)                                | upload multiple files                                  |
-| GET :fire:| [/download](#download-file)                                       | download a file                                        |
+| GET       | [/api/parentTable/:id/childTable](https://github.com/o1lab/xmysql#relational-tables)             | Get list of child table rows with parent table foreign key   | 
+| GET :fire:| [/api/tableName/aggregate](https://github.com/o1lab/xmysql#aggregate-functions)                  | Aggregate results of numeric column(s)                 |
+| GET :fire:| [/api/tableName/groupby](https://github.com/o1lab/xmysql#group-by-having-as-api)                 | Group by results of column(s)                          |
+| GET :fire:| [/api/tableName/ugroupby](https://github.com/o1lab/xmysql#union-of-multiple-group-by-statements) | Multiple group by results using one call               |
+| GET :fire:| [/api/tableName/chart](https://github.com/o1lab/xmysql#chart)                                    | Numeric column distribution based on (min,max,step) or(step array) or (automagic)|
+| GET :fire:| [/api/tableName/autochart](https://github.com/o1lab/xmysql#autochart)                            | Same as Chart but identifies which are numeric column automatically - gift for lazy while prototyping|
+| GET :fire:| [/api/xjoin](https://github.com/o1lab/xmysql#xjoin)                                              | handles join                                        |
+| GET :fire:| [/dynamic](https://github.com/o1lab/xmysql#run-dynamic-queries)                                  | execute dynamic mysql statements with params           |
+| GET :fire:| [/upload](https://github.com/o1lab/xmysql#upload-single-file)                                    | upload single file                                     |
+| GET :fire:| [/uploads](https://github.com/o1lab/xmysql#upload-multiple-files)                                | upload multiple files                                  |
+| GET :fire:| [/download](https://github.com/o1lab/xmysql#download-file)                                       | download a file                                        |
 | GET       | /api/tableName/describe                                           | describe each table for its columns      |
 | GET       | /api/tables                                                       | get all tables in database                           |
-| GET       | [/_health](#health)                                               | gets health of process and mysql -- details query params for more details |
-| GET       | [/_version](#version)                                             | gets version of Xmysql, mysql, node|
+| GET       | [/_health](https://github.com/o1lab/xmysql#health)                                               | gets health of process and mysql -- details query params for more details |
+| GET       | [/_version](https://github.com/o1lab/xmysql#version)                                             | gets version of Xmysql, mysql, node|
 
 
 ### API URL
+
 - The url to call the xmysql API.
+
 ### method
+
 - Http Request Method 
+
 ## parameter example
+
 ```javascript
 # GET
 msg.method = 'get';

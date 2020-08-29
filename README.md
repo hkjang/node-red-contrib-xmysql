@@ -16,6 +16,8 @@ Usage
 
 Expects a <b>msg.payload</b> with request(get,post,put,patch,delete) params.
 
+<a href="https://www.buymeacoffee.com/gagagiga" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174"></a>
+
 ## API Overview
 
 | HTTP Type | API URL                          | Comments                                               |

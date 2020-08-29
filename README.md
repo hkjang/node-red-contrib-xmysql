@@ -58,8 +58,22 @@ Expects a <b>msg.payload</b> with request(get,post,put,patch,delete) params.
 ## parameter example
 ```javascript
 # GET
-msg.method = 'get'
-// msg.payload.id = '4';
+msg.method = 'get';
+// msg.payload.id = '1598617946';
+msg.payload.api = 'exists';
+msg.payload.api = 'findOne';
+msg.payload.api = 'count';
+msg.payload.api = 'distinct';
+msg.payload.api = 'groupby';
+msg.payload.api = 'ugroupby';
+msg.payload['_fields'] = 'it_name';
+// _fields=it_price&min=0&max=10000&step=1000
+msg.payload.api = 'chart';
+msg.payload['_fields'] = 'it_price';
+msg.payload['min'] = '0';
+msg.payload['max'] = '10000';
+msg.payload['step'] = '1000';
+msg.payload.api = 'aggregate';
 
 # POST
 msg.method = 'post'
@@ -79,6 +93,6 @@ msg.payload.id = '2';
 
 ## sample flow
 ```json
-[{"id":"3e1b116b.cedffe","type":"http request","z":"3f322a34.631386","name":"","method":"POST","ret":"obj","paytoqs":"ignore","url":"https://yourdomain.com/auth/local","tls":"","persist":false,"proxy":"","authType":"","x":450,"y":360,"wires":[["5b7cb68a.595e98"]]},{"id":"f5982664.8ffe08","type":"inject","z":"3f322a34.631386","name":"","props":[{"p":"payload"},{"p":"topic","vt":"str"}],"repeat":"","crontab":"","once":false,"onceDelay":0.1,"topic":"","payload":"","payloadType":"date","x":120,"y":360,"wires":[["7b10baf0.334ff4"]]},{"id":"5b7cb68a.595e98","type":"debug","z":"3f322a34.631386","name":"","active":true,"tosidebar":true,"console":false,"tostatus":false,"complete":"false","statusVal":"","statusType":"auto","x":630,"y":360,"wires":[]},{"id":"7b10baf0.334ff4","type":"function","z":"3f322a34.631386","name":"","func":"msg = {}\nmsg.payload = {};\nmsg.payload.identifier = 'test';\nmsg.payload.password = 'test1234!';\n\n\nreturn msg;","outputs":1,"noerr":0,"initialize":"","finalize":"","x":280,"y":360,"wires":[["3e1b116b.cedffe"]]},{"id":"a7d351e3.67da4","type":"inject","z":"3f322a34.631386","name":"","props":[{"p":"payload"},{"p":"topic","vt":"str"}],"repeat":"","crontab":"","once":false,"onceDelay":0.1,"topic":"","payload":"","payloadType":"date","x":120,"y":400,"wires":[["9fdc864d.3c9578"]]},{"id":"89adfa3d.3a4578","type":"debug","z":"3f322a34.631386","name":"","active":true,"tosidebar":true,"console":false,"tostatus":false,"complete":"false","statusVal":"","statusType":"auto","x":730,"y":400,"wires":[]},{"id":"9fdc864d.3c9578","type":"function","z":"3f322a34.631386","name":"","func":"msg = {};\nmsg.payload = {};\nmsg.method = 'get';\nmsg.payload.id = '1';\n\nreturn msg;","outputs":1,"noerr":0,"initialize":"","finalize":"","x":280,"y":400,"wires":[["8b66bc62.ae2e5"]]},{"id":"70077ccd.7c0fc4","type":"json","z":"3f322a34.631386","name":"","property":"payload","action":"","pretty":false,"x":560,"y":400,"wires":[["89adfa3d.3a4578"]]},{"id":"8b66bc62.ae2e5","type":"xmysql","z":"3f322a34.631386","xmysqlAPIURL":"https://yourdomain.com/products","tableName":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTk3MTQ0MzQwLCJleHAiOjE1OTk3MzYzNDB9.ULLdLkpXQ0ElmOp-QzFk_gHZfoDd6Ee0l7DVdhxaAII","x":430,"y":400,"wires":[["70077ccd.7c0fc4"]]}]
+[{"id":"a7bb362a.8529f8","type":"xmysql","z":"a1c6356a.515558","xmysqlAPIURL":"http://localhost:3000","tableName":"g5_shop_item","x":420,"y":40,"wires":[["aa46913c.7dce9"]]},{"id":"7141e340.8de68c","type":"inject","z":"a1c6356a.515558","name":"","props":[{"p":"payload"},{"p":"topic","vt":"str"}],"repeat":"","crontab":"","once":false,"onceDelay":0.1,"topic":"","payload":"","payloadType":"date","x":110,"y":40,"wires":[["1504b988.e70b26"]]},{"id":"1504b988.e70b26","type":"function","z":"a1c6356a.515558","name":"","func":"\nreturn msg;","outputs":1,"noerr":0,"initialize":"","finalize":"","x":270,"y":40,"wires":[["a7bb362a.8529f8"]]},{"id":"5e3b6dc5.8ec834","type":"debug","z":"a1c6356a.515558","name":"","active":true,"tosidebar":true,"console":false,"tostatus":false,"complete":"false","statusVal":"","statusType":"auto","x":730,"y":40,"wires":[]},{"id":"aa46913c.7dce9","type":"json","z":"a1c6356a.515558","name":"","property":"payload","action":"","pretty":false,"x":570,"y":40,"wires":[["5e3b6dc5.8ec834"]]},{"id":"b5a12c75.c66c3","type":"xmysql","z":"a1c6356a.515558","xmysqlAPIURL":"http://localhost:3000","tableName":"g5_shop_item","x":420,"y":80,"wires":[["ab117167.5b9d4"]]},{"id":"770389a4.d4ba58","type":"inject","z":"a1c6356a.515558","name":"","props":[{"p":"payload"},{"p":"topic","vt":"str"}],"repeat":"","crontab":"","once":false,"onceDelay":0.1,"topic":"","payload":"","payloadType":"date","x":110,"y":80,"wires":[["850c4a8f.d80fd8"]]},{"id":"850c4a8f.d80fd8","type":"function","z":"a1c6356a.515558","name":"","func":"msg = {};\nmsg.payload = {};\nmsg.method = 'get';\n// msg.payload.id = '1598617946';\n// msg.payload.id = '0';\nmsg.payload.api = 'exists';\nmsg.payload.api = 'findOne';\nmsg.payload.api = 'count';\nmsg.payload.api = 'distinct';\nmsg.payload.api = 'groupby';\nmsg.payload.api = 'ugroupby';\nmsg.payload['_fields'] = 'it_name';\n// _fields=it_price&min=0&max=10000&step=1000\nmsg.payload.api = 'chart';\nmsg.payload['_fields'] = 'it_price';\nmsg.payload['min'] = '0';\nmsg.payload['max'] = '10000';\nmsg.payload['step'] = '1000';\nmsg.payload.api = 'aggregate';\n\nreturn msg;","outputs":1,"noerr":0,"initialize":"","finalize":"","x":270,"y":80,"wires":[["b5a12c75.c66c3"]]},{"id":"9d9e60df.86174","type":"debug","z":"a1c6356a.515558","name":"","active":true,"tosidebar":true,"console":false,"tostatus":false,"complete":"false","statusVal":"","statusType":"auto","x":730,"y":80,"wires":[]},{"id":"ab117167.5b9d4","type":"json","z":"a1c6356a.515558","name":"","property":"payload","action":"","pretty":false,"x":570,"y":80,"wires":[["9d9e60df.86174"]]}]
 
 ```

@@ -1,0 +1,41 @@
+
+<script type="text/x-red" data-template-name="xmysql">
+    <div class="form-row">
+        <label for="node-input-xmysqlAPIURL"><i class="fa fa-link"></i> API URL</label>
+        <input type="text" id="node-input-xmysqlAPIURL" placeholder="http://localhost:3000" style=" vertical-align: top;">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-tableName"><i class="fa fa-table"></i> TableName </label>
+        <input type="text" id="node-input-tableName" placeholder="TableName">
+    </div>
+
+</script>
+
+<script type="text/x-red" data-help-name="xmysql">
+   <p>Request <b>msg.payload</b> params to xmysql API.</p>
+   <p>Simple way to get to xmysql API.</p>
+   <p><a href="https://github.com/o1lab/xmysql" target="_new">ref this</a></p>
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('xmysql',{
+        category: 'function',
+        defaults: {
+            xmysqlAPIURL: {value:"", required:true},
+            tableName: {value:"", required:false}
+        },
+        color:"#01bbff",
+        icon: "xmysql.png",
+        align: "left",
+        inputs:1,
+        outputs:1,
+        label: function() {
+            return this.name||"xmysql";
+        },
+        labelStyle: function() {
+            return this.name?"node_label_italic":"";
+        }
+    });
+
+</script>
